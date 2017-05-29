@@ -1,8 +1,10 @@
 # INSTALACIÓN RAW ADMIN
 
-1. clonar del repositorio.
-2. ejecutar composer install dentro de la carpeta del proyecto (terminal).
-3. ejecutar docker-compose up -d --build
+1. Clonar del repositorio.
+2. Otorgar permisos de lectura y escritura. 
+	-sudo chmod 755 -R RAW-SYSTEM
+3. Ejecutar composer install dentro de la carpeta del proyecto (terminal).
+4. Ejecutar docker-compose up -d --build
 
 # ACCESO POR DEFECTO
 email: adminraw@raw.com
