@@ -7,5 +7,8 @@ CREATE TABLE `usuarios` (
   `perfil` int(11) NOT NULL,
   `Estatus` varchar(10) NOT NULL DEFAULT 'Activo',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;s
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+
+INSERT INTO `usuarios` (`id`,`email`,`contrasena`,`nombre`,`apellido`,`perfil`,`Estatus`) 
+VALUES (1,'adminraw@raw.com','$2y$10$yY7BjP4CNs60Mf5E90DrKuVR88PIKR3ivEqs.IhMYPW6IGKS0Kfy.','Admin','RAW',1,'Activo');
 
