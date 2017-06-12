@@ -84,10 +84,33 @@
                 <li><a href="{{asset('user/listUser')}}"><i class="fa fa-circle-o"></i> List</a></li>
               </ul>
             </li>
+             <li class="treeview">
+              <a href="#">
+                <i class="fa fa-arrows-alt"></i>
+                <span>Location</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{{asset('location/create')}}"><i class="fa fa-circle-o"></i> Create</a></li>
+                <li><a href="{{asset('location/listLocation')}}"><i class="fa fa-circle-o"></i> List</a></li>
+              </ul>
+            </li>
+             <li class="treeview">
+              <a href="#">
+                <i class="fa fa-clipboard"></i>
+                <span>Brochures</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{{asset('user/create')}}"><i class="fa fa-circle-o"></i> Create</a></li>
+                <li><a href="{{asset('user/listUser')}}"><i class="fa fa-circle-o"></i> List</a></li>
+              </ul>
+            </li>
           </ul>
         </section>
         <!-- /.sidebar -->
       </aside>
+
        <!--Contenido-->
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
@@ -99,7 +122,7 @@
             <div class="col-md-12">
               <div class="box">
                 <div class="box-header with-border">
-                  <h3 class="box-title">RAW Admint</h3>
+                  <h3 class="box-title">RAW Admin</h3>
                   <div class="box-tools pull-right">
                     <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
 

@@ -29,4 +29,25 @@ Route::group(['middleware' => ['inside','HistoryBack']], function () {
 	Route::get('/user/destroy/{id}','userController@destroy');
 });
 
+//**********************Rutas para usuarios regulares********************************
+Route::group(['middleware' => ['Outside','HistoryBack']], function () {
+    //Rutas externas módulo de usuarios regulares
+	Route::get('/regularuser', function () {return view('regularuser.loginUser');});
+	Route::post('/login','regularuserController@login');
+});
 
+
+//Rutas internas Módulo de usuarios regulares
+   	Route::get('/', function () {return view('regularuser.maininterface');});
+	Route::get('/regularuser/maininterface', function () {return view('regularuser.maininterface');});
+	Route::get('/logout','regularuserController@logout');
+
+
+//**********************Rutas para location********************************
+
+Route::group(['middleware' => ['Outside','HistoryBack']], function () {
+    //Rutas externas módulo de usuarios regulares
+	Route::get('/location', function () {return view('location.create');});
+	Route::get('location/create','locationController@create');
+	Route::post('location/store','locationController@store');
+});
