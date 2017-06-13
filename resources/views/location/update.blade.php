@@ -35,7 +35,8 @@
  
     <script type="text/javascript">
     //setea las coordenadas por defecto del mapa
-    var myLatlng = new google.maps.LatLng(9.232249097344258,-66.62109362499996);
+    //var myLatlng = new google.maps.LatLng(129.232249097344258,-66.62109362499996);
+    var myLatlng = new google.maps.LatLng({{$data->lat}},{{$data->lng}});
     var mapOptions = {
         zoom: 4,
         center: myLatlng
