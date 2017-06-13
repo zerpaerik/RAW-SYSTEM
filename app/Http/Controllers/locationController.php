@@ -20,6 +20,7 @@ class locationController extends Controller
     {
         
       $data= Location::lista();
+      //$data= false;
       if ($data){
          return view("location.listLocation",["data"=>$data]);
       }else{
@@ -38,7 +39,8 @@ class locationController extends Controller
     {
     $data= array(
                       'nombre'=>Input::get('nombre'),
-                      'pin'=>Input::get('perfil'),
+                      'lat'=>Input::get('lat'),
+                      'lng'=>Input::get('lng'),
 
                     );
          

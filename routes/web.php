@@ -45,9 +45,10 @@ Route::group(['middleware' => ['Outside','HistoryBack']], function () {
 
 //**********************Rutas para location********************************
 
-Route::group(['middleware' => ['Outside','HistoryBack']], function () {
+Route::group(['middleware' => ['inside','HistoryBack']], function () {
     //Rutas externas módulo de usuarios regulares
 	Route::get('/location', function () {return view('location.create');});
 	Route::get('location/create','locationController@create');
 	Route::post('location/store','locationController@store');
+	Route::get('/location/listLocation','locationController@index');
 });

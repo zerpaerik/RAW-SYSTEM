@@ -1,22 +1,37 @@
 @extends ('layouts.admin')
 @section ('contenido')
-
-<form role="form" action="{{asset('location/store')}}" method="POST">
-  {{Form::token()}}
-
-  <div class="form-group">
-    <label for="email">Name</label>
-    <input type="email" class="form-control" id="email" name="email"
-           placeholder="Enter your Email" required autocomplete="off">
+    <style type="text/css">
+        #map-canvas {
+          width: 350px;
+         height: 250px;
+        }
+    </style>
+    <form action="{{asset('location/store')}}" method="POST">
+      {{Form::token()}}
+      <div class="form-group">
+    <label for="nombre">Name</label>
+    <input type="text" class="form-control" id="nombre" name="nombre"
+           placeholder="Enter the name of the location" required autocomplete="off">
   </div>
-  <div>
+      <div>
         <label>Map</label>
         <input type="text" name="map" id="searchmap">
         <div id="map-canvas"></div>
       </div>
-  
-  <button type="submit" class="btn btn-default">Save</button>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMj_VfarmBKwf6CDbOGLxknLm23prAL6g&libraries=places" type="text/javascript"></script>
+
+      <div>
+        <label>Latitude</label>
+        <input type="text" name="lat" id="lat" readonly>
+      </div>
+      <div>
+        <label>Lengh</label>
+        <input type="text" name="lng" id="lng" readonly>
+      </div>     
+
+      <button type="submit" class="btn btn-default">Save</button>
+    </form>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMj_VfarmBKwf6CDbOGLxknLm23prAL6g&libraries=places" type="text/javascript"></script>
  
     <script type="text/javascript">
     //setea las coordenadas por defecto del mapa
@@ -31,9 +46,8 @@
     var marker = new google.maps.Marker({
         position: myLatlng,
         draggable: true,
-        
+       
     });
-
     // To add the marker to the map, call setMap();
     marker.setMap(map);
     //Genera el buscador en el mapa.
@@ -42,27 +56,19 @@
       var places= searchBox.getPlaces();
       var bounds= new google.maps.LatLngBounds();
       var i, place;
-
       for (i = 0; place = places[i]; i++) {
          bounds.extend(place.geometry.location);
          marker.setPosition(place.geometry.location);
       }
       map.fitBounds(bounds);
-      map.setZoom(15);  
-
+      map.setZoom(15); 
     })
-
-
     google.maps.event.addListener(marker,'position_changed',function(){
-      var lat=marker.getPosition().lat();  
+      var lat=marker.getPosition().lat(); 
       var lng=marker.getPosition().lng();
-
       document.getElementById("lat").value = lat;
       document.getElementById("lng").value = lng;
     })
-
-    </script>  
-
-</form>
+    </script>
 
 @endsection
