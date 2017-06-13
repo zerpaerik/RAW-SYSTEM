@@ -27,13 +27,15 @@ protected $table='location';
 
      public static function lista(){
         $location = DB::table('location')
+                     ->where('Estatus','=','Activo')
                      ->paginate(5);
 
          if(!is_null($location)){
             return $location;
          }else{
             return false;
-         }   
+         } 
+         }  
 
 
      public static function guardar($data){
@@ -41,6 +43,7 @@ protected $table='location';
         $location->nombre=$data['nombre'];
         $location->lat=$data['lat'];
         $location->lng=$data['lng'];
+        $location->Estatus='Activo';
        
 
 
@@ -57,7 +60,7 @@ protected $table='location';
        $location=Location::findOrFail($id);
        $location->nombre=$data['nombre'];
        $location->lat=$data['lat'];
-       $location->long=$data['lng'];
+       $location->lng=$data['lng'];
 
 
        $location->update();
@@ -70,12 +73,12 @@ protected $table='location';
     }
 
     public static function eliminar($id){
-       $usuario=Usuario::findOrFail($id);
-       $usuario->estatus='Inactivo';
+       $location=Location::findOrFail($id);
+       $location->Estatus='Inactivo';
 
-       $usuario->update();
+       $location->update();
 
-         if(!is_null($usuario)){
+         if(!is_null($location)){
             return true;
          }else{
             return false;

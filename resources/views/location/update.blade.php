@@ -6,32 +6,30 @@
          height: 250px;
         }
     </style>
-    <div>
-    <form action="{{asset('location/store')}}" method="POST">
+    <<form role="form" action="{{asset('location/update')}}/{{$data->id}}" method="PUT">
       {{Form::token()}}
       <div class="form-group">
-      <div>
-        <label for="nombre">Name</label>
-        <input type="text" class="form-control" id="nombre" name="nombre"
-        placeholder="Enter the name of the location" required autocomplete="off">     
-      </div>
-
+    <label for="nombre">Name</label>
+    <input type="text" class="form-control" id="nombre" name="nombre"
+           placeholder="Enter the name of the location" required="" value="{{$data->nombre}}">
+  </div>
       <div>
         <label>Map</label>
-        <input type="text" name="map" id="searchmap" class="form-control">
+        <input type="text" name="map" id="searchmap">
         <div id="map-canvas"></div>
       </div>
 
       <div>
-        <input type="text" name="lat" id="lat" class="form-control hidden" readonly>
+        <label>Latitude</label>
+        <input type="text" name="lat" id="lat" readonly required="" value="{{$data->lat}}">
       </div>
       <div>
-        <input type="text" name="lng" id="lng" class="form-control hidden" readonly>
-      </div>    
+        <label>Lengh</label>
+        <input type="text" name="lng" id="lng" readonly required="" value="{{$data->lng}}">
+      </div>     
 
-      <button type="submit" class="btn btn-default">Save</button>
+     <button type="submit" class="btn btn-default">Update</button>
     </form>
-  </div>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMj_VfarmBKwf6CDbOGLxknLm23prAL6g&libraries=places" type="text/javascript"></script>
  

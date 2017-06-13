@@ -56,56 +56,38 @@ class locationController extends Controller
 
     public function edit($id)
     {
-      $usuario = Usuario::findOrFail($id);
-      return view("user.update",['data'=>$usuario]);
+      $location = Location::findOrFail($id);
+      return view("location.update",['data'=>$location]);
     }
 
     public function update($id)
     {
         $data= array(
-             'email'=>Input::get('email'),
-             'nombre'=>Input::get('nombre'),
-             'apellido'=>Input::get('apellido'),
-             'perfil'=>Input::get('perfil')
+                      'nombre'=>Input::get('nombre'),
+                      'lat'=>Input::get('lat'),
+                      'lng'=>Input::get('lng'),
               );
 
-       $actualizar=Usuario::actualizar($id,$data);
+       $actualizar=Location::actualizar($id,$data);
        if ($actualizar) {
-          return Redirect::to('user/listUser'); 
+          return Redirect::to('location/listLocation'); 
        }else{
-          return Redirect::to('user');
+          return Redirect::to('location');
        }
 
     }
 
     public function destroy($id)
     {
-       $eliminar=Usuario::eliminar($id);
+       $eliminar=Location::eliminar($id);
        if ($eliminar) {
-          return Redirect::to('user/listUser'); 
+          return Redirect::to('location/listLocation'); 
        }else{
-          return Redirect::to('user');
+          return Redirect::to('location');
        }
 
     }
  	
- 	public function login(){
- 		$data= array(
- 					        'email'=>Input::get('email'),
- 		              'contrasena'=>Input::get('password'),
- 			        );
-         
-        $login=Usuario::login($data);
-
- 		if ($login) {
-            return Redirect::to('regularuser/maininterface');
- 		}else{
-      Session::flash('success','Usuario o contraseña incorrectos');
- 			return Redirect::to('regularuser');
-
- 		}
- 		
-    }
 
 
     public function logout(){

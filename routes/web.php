@@ -51,4 +51,7 @@ Route::group(['middleware' => ['inside','HistoryBack']], function () {
 	Route::get('location/create','locationController@create');
 	Route::post('location/store','locationController@store');
 	Route::get('/location/listLocation','locationController@index');
+	Route::get('/location/edit/{id}','locationController@edit');
+	Route::get('/location/update/{id}','locationController@update');
+	Route::get('/location/destroy/{id}','locationController@destroy');
 });

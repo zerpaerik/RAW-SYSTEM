@@ -14,10 +14,10 @@
 <tbody>
 @foreach($data as $location)
      <tr>
-     	<td>{{$user->id}}</td>
-     	<td>{{$user->nombre}}</td>
-     	<td>{{$user->latitud}}</td>
-     	<td>{{$user->longitud}}</td>
+     	<td>{{$location->id}}</td>
+     	<td>{{$location->nombre}}</td>
+     	<td>{{$location->lat}}</td>
+     	<td>{{$location->lng}}</td>
      	<td><a class="btn btn-success" href="{{asset('location/edit')}}/{{$location->id}}">Update</a></td>
 
      	<td><a href="" data-target="#modal-delete-{{$location->id}}" data-toggle="modal"><button class="btn btn-danger">Delete</button></a></td>
