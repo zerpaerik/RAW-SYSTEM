@@ -31,7 +31,8 @@ class organismosController extends Controller
 
     public function create()
     {
-      return view("organismos.create");
+      $hola="HOla mundo";
+      return view("organismos.create",["hola"=>$hola]);
 
     }
 
