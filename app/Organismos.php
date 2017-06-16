@@ -7,9 +7,9 @@ use DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
-class UsuarioRegular extends Model
+class Organismos extends Model
 {
-    protected $table='usuarios';
+    protected $table='tblorganismo';
     protected $primaryKey='id';
 
 
@@ -17,10 +17,7 @@ class UsuarioRegular extends Model
 
     protected $fillable =[
         'id',
-        'email',
-        'contrasena' ,
-        'estatus',
-        'perfil'
+        'descripcion'
         ];
 
 
@@ -46,29 +43,24 @@ class UsuarioRegular extends Model
     }
 
     public static function lista(){
-        $usuario = DB::table('usuarios')
-                     ->where('estatus','=','Activo')
+        $organismo = DB::table('tblorganismo')
+                     ->where('estatus','=','1')
                      ->paginate(5);
 
-         if(!is_null($usuario)){
-            return $usuario;
+         if(!is_null($organismo)){
+            return $organismo;
          }else{
             return false;
          }        
     }
 
     public static function guardar($data){
-        $usuario=new UsuarioRegular;
-        $usuario->nombre=$data['nombre'];
-        $usuario->apellido=$data['apellido'];
-        $usuario->email=$data['email'];
-        $usuario->contrasena=$data['contrasena'];
-        $usuario->perfil=$data['perfil'];
+        $organismo=new Organismos;
+        $organismo->descripcion=$data['descripcion'];
 
+        $organismo->save();
 
-        $usuario->save();
-
-         if(!is_null($usuario)){
+         if(!is_null($organismo)){
             return true;
          }else{
             return false;
@@ -77,16 +69,12 @@ class UsuarioRegular extends Model
 
 
     public static function actualizar($id,$data){
-       $usuario=UsuarioRegular::findOrFail($id);
-       $usuario->nombre=$data['nombre'];
-       $usuario->apellido=$data['apellido'];
-       $usuario->email=$data['email'];
-       $usuario->perfil=$data['perfil'];
+       $organismo=Organismos::findOrFail($id);
+       $organismo->descripcion=$data['descripcion'];
 
+       $organismo->update();
 
-       $usuario->update();
-
-         if(!is_null($usuario)){
+         if(!is_null($organismo)){
             return true;
          }else{
             return false;
@@ -94,12 +82,12 @@ class UsuarioRegular extends Model
     }
 
     public static function eliminar($id){
-       $usuario=UsuarioRegular::findOrFail($id);
-       $usuario->estatus='Inactivo';
+       $organismo=Organismos::findOrFail($id);
+       $organismo->estatus='2';
 
-       $usuario->update();
+       $organismo->update();
 
-         if(!is_null($usuario)){
+         if(!is_null($organismo)){
             return true;
          }else{
             return false;

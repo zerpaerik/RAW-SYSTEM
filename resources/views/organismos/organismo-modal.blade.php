@@ -1,6 +1,6 @@
 <div class="modal fade modal-slide-in-right" aria-hidden="true"
-role="dialog" tabindex="-1" id="modal-delete-{{$location->id}}">
-<form action="{{asset('location/destroy')}}/{{$location->id}}" method="delete">
+role="dialog" tabindex="-1" id="modal-delete-{{$organismo->id}}">
+<form action="{{asset('organismos/destroy')}}/{{$organismo->id}}" method="delete">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">

@@ -1,14 +1,60 @@
-CREATE TABLE `usuarios` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `email` varchar(45) NOT NULL,
-  `contrasena` varchar(200) NOT NULL,
-  `nombre` varchar(50) NOT NULL,
-  `apellido` varchar(45) DEFAULT NULL,
-  `perfil` int(11) NOT NULL,
-  `Estatus` varchar(10) NOT NULL DEFAULT 'Activo',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+-- Table: public.tblorganismo
 
-INSERT INTO `usuarios` (`id`,`email`,`contrasena`,`nombre`,`apellido`,`perfil`,`Estatus`) 
-VALUES (1,'adminraw@raw.com','$2y$10$yY7BjP4CNs60Mf5E90DrKuVR88PIKR3ivEqs.IhMYPW6IGKS0Kfy.','Admin','RAW',1,'Activo');
+-- DROP TABLE public.tblorganismo;
 
+CREATE TABLE public.tblorganismo
+(
+  id bigint NOT NULL DEFAULT nextval('tblorganismo_id_org_seq'::regclass),
+  descripcion character(50),
+  estatus integer NOT NULL DEFAULT 1, -- Estatus:...
+  CONSTRAINT tblorganismo_pkey PRIMARY KEY (id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.tblorganismo
+  OWNER TO postgres;
+COMMENT ON COLUMN public.tblorganismo.estatus IS 'Estatus:
+1: Activo
+2: Inactivo';
+
+
+-- Table: public.tbldependencia
+
+-- DROP TABLE public.tbldependencia;
+
+CREATE TABLE public.tbldependencia
+(
+  id bigint NOT NULL DEFAULT nextval('tbldependencia_id_seq'::regclass),
+  descripcion character(50) NOT NULL,
+  id_org integer,
+  estatus integer NOT NULL DEFAULT 1, -- Estatus:...
+  CONSTRAINT tbldependencia_pkey PRIMARY KEY (id),
+  CONSTRAINT tbldependencia_id_org_fkey FOREIGN KEY (id_org)
+      REFERENCES public.tblorganismo (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.tbldependencia
+  OWNER TO postgres;
+COMMENT ON COLUMN public.tbldependencia.estatus IS 'Estatus:
+1: Activo
+2: Inactivo';
+
+-- Table: public.tblcargos
+
+-- DROP TABLE public.tblcargos;
+
+CREATE TABLE public.tblcargos
+(
+  idcargo integer NOT NULL,
+  descripcion character(50),
+  CONSTRAINT tblcargos_pkey PRIMARY KEY (idcargo)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.tblcargos
+  OWNER TO postgres;

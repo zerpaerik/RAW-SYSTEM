@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'pgsql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -68,14 +68,14 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => env('DB_HOST', '10.1.12.12'),
+            'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'fundelec_BD'),
+            'database' => env('DB_DATABASE', 'sicor'),
             'username' => env('DB_USERNAME', 'postgres'),
             'password' => env('DB_PASSWORD', '123456'),
             'charset' => 'utf8',
             'prefix' => '',
-            'schema' => 'Intranet',
+            'schema' => 'public',
             'sslmode' => 'prefer',
         ],
 

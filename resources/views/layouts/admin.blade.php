@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>RAW Admin</title>
+    <title>Correspondencia</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -30,7 +30,7 @@
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>ADM</b>intranet</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>RAW Admin</b></span>
+          <span class="logo-lg"><b>Correspondencia</b></span>
         </a>
 
         <!-- Header Navbar: style can be found in header.less -->
@@ -54,7 +54,7 @@
 
               <li class="dropdown user user-menu">
                 <a href="/logout">
-                  <small class="bg-red">Logout</small>
+                  <small class="bg-red">Cerrar Sesión</small>
                 </a>
               </li>
 
@@ -76,34 +76,34 @@
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-user"></i>
-                <span>User</span>
+                <span>Organismos</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{asset('user/create')}}"><i class="fa fa-circle-o"></i> Create</a></li>
-                <li><a href="{{asset('user/listUser')}}"><i class="fa fa-circle-o"></i> List</a></li>
+                <li><a href="{{asset('organismos/create')}}"><i class="fa fa-circle-o"></i>Registrar</a></li>
+                <li><a href="{{asset('organismos/listOrganismos')}}"><i class="fa fa-circle-o"></i>Listar</a></li>
               </ul>
             </li>
              <li class="treeview">
               <a href="#">
                 <i class="fa fa-arrows-alt"></i>
-                <span>Location</span>
+                <span>Dependencias</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{asset('location/create')}}"><i class="fa fa-circle-o"></i> Create</a></li>
-                <li><a href="{{asset('location/listLocation')}}"><i class="fa fa-circle-o"></i> List</a></li>
+                <li><a href="{{asset('dependencias/create')}}"><i class="fa fa-circle-o"></i>Registrar</a></li>
+                <li><a href="{{asset('dependencias/listDependencias')}}"><i class="fa fa-circle-o"></i>Listar</a></li>
               </ul>
             </li>
              <li class="treeview">
               <a href="#">
                 <i class="fa fa-clipboard"></i>
-                <span>Brochures</span>
+                <span>Cargos</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{asset('user/create')}}"><i class="fa fa-circle-o"></i> Create</a></li>
-                <li><a href="{{asset('user/listUser')}}"><i class="fa fa-circle-o"></i> List</a></li>
+                <li><a href="{{asset('user/create')}}"><i class="fa fa-circle-o"></i>Registrar</a></li>
+                <li><a href="{{asset('user/listUser')}}"><i class="fa fa-circle-o"></i>Listar</a></li>
               </ul>
             </li>
           </ul>
@@ -122,7 +122,7 @@
             <div class="col-md-12">
               <div class="box">
                 <div class="box-header with-border">
-                  <h3 class="box-title">RAW Admin</h3>
+                  <h3 class="box-title">Sistema de Correspondencia</h3>
                   <div class="box-tools pull-right">
                     <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
 
