@@ -67,5 +67,19 @@ Route::group(['middleware' => ['Outside','HistoryBack']], function () {
 	Route::get('/dependencias/listDependencias','dependenciasController@index');
 	Route::get('/dependencias/edit/{id}','dependenciasController@edit');
 	Route::get('/dependencias/update/{id}','dependenciasController@update');
-	Route::get('/dependencias/destroy/{id}','odependenciasController@destroy');
+	Route::get('/dependencias/destroy/{id}','dependenciasController@destroy');
+});
+
+
+//**********************Rutas para Cargos********************************
+
+Route::group(['middleware' => ['Outside','HistoryBack']], function () {
+    //Rutas externas módulo de usuarios regulares
+	Route::get('/cargos', function () {return view('cargos.create');});
+	Route::get('/cargos/create','cargosController@create');
+	Route::post('/cargos/store','cargosController@store');
+	Route::get('/cargos/listCargos','cargosController@index');
+	Route::get('/cargos/edit/{id}','cargosController@edit');
+	Route::get('/cargos/update/{id}','cargosController@update');
+	Route::get('/cargos/destroy/{id}','cargosController@destroy');
 });
